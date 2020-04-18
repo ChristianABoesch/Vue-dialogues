@@ -1,16 +1,29 @@
 <template>
   <div id="app">
-    <h1>We are here.</h1>
+    <h1>WE ARE HERE.</h1>
+    <input v-model="newDialog">
+    <button @click="addDialog">Add dialogue</button>
+    <ol>
+      <li v-for="dialog in dialogs">{{dialog}}</li>
+    </ol>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      newDialog: "Y-yo.",
+      dialogs: ["I like frogs", "Look at the time!", "This party's over"]
+    };
+  },
+  methods: {
+    addDialog() {
+      //alert("Hey Papi, can you make this thing work?")
+      this.dialogs.push(this.newDialog);
+      this.newDialog = "";
+    }
   }
 };
 </script>
